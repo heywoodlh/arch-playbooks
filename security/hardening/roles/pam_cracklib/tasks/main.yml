@@ -1,9 +1,10 @@
 ---
 - name: 
   lineinfile:
-    dest: /etc/pam.d/common-password
+    dest: /etc/pam.d/passwd
     line: "{{ item.line }}"
     insertafter: EOF
   with_items:
-    - { line: 'password required pam_unix.so use_authtok md5' }
-    - { line: 'password required pam_cracklib.so retry=1 minlen=6 difok=3' }
+    - { line: '#%PAM-1.0 (set by ansible)' }
+    - { line: 'password required pam_cracklib.so retry=2 minlen=10 difok=6 dcredit=-1 ucredit=-1 ocredit=-1 lcredit=-1' }
+    - { line: 'password required pam_unix.so use_authtok sha512 shadow' }

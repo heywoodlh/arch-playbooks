@@ -1,0 +1,20 @@
+---
+- name: install various hardening packages
+  pacman:
+    name: "{{ packages }}"
+    state: latest
+    update_cache: true
+  vars:
+    packages:
+    - clamav
+    - cracklib
+    - sysstat
+    - rkhunter
+    - fail2ban
+    - audit
+    - cronie
+- name: start cronjob daemon
+  systemd:
+    name: cronie
+    state: started
+    enabled: yes

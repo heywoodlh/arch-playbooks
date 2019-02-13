@@ -1,8 +1,8 @@
 ---
 - hosts: all
+  become: true
   tasks:
-  - name: apt-get dist-upgrade
+  - name: upgrade system
     apt:
-      upgrade: dist
+      upgrade: yes
       update_cache: yes
-    become: true

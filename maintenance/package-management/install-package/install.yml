@@ -3,6 +3,6 @@
   become: true
   tasks:
   - name: install single package
-    apt:
+    pacman:
       name: "{{ package_name }}"
       update_cache: yes
