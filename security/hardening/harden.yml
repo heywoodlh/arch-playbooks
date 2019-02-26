@@ -2,10 +2,16 @@
 - hosts: all
   become: true
   roles:
-  - pacman
+# - umask
+  - apt
   - ssh
   - fail2ban
   - clamav
   - pam_cracklib
+  - debsecan
   - rkhunter
-  #- umask
+  - launcher
+  - filebeat
+  - rsyslog
+  - stig
+  - auditd
