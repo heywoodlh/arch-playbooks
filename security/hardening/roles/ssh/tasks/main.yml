@@ -38,5 +38,5 @@
   when: ssh_set_timeout == 'True'
 - name: restart SSH service
   systemd:
-    name: ssh
+    name: sshd
     state: restarted
